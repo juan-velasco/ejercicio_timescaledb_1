@@ -3,7 +3,7 @@ from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 CONNECTION = "postgres://user:password@timescaledb:5432/db"
-TOKEN = 'MpCpEGm1092T3PrbaUFGIRtadf1ggNMQx-IX55f_hLIYFG6E9JF9M3NdbnMlkpkT080YRkHgBoyWtIPAj_MJrQ==' # cambiar por el token de influxdb
+TOKEN = 'N7k23mMP70pWt9O25RY7Kia_I9FaD7tkrhYH90C9yM9balsGiMxdRcQXQo3YWfhw3a6koRzqyu-zNAQvSXwQyQ==' # cambiar por el token de influxdb
 ORG = 'org1'
 BUCKET = 'bucket1'
 URL = 'http://influxdb:8086'

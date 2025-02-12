@@ -39,8 +39,12 @@ services:
       - influxdb_data:/var/lib/influxdb
     environment:
       INFLUXDB_DB: db
-      INFLUXDB_USER: user
-      INFLUXDB_USER_PASSWORD: password
+      DOCKER_INFLUXDB_INIT_USERNAME: johndoe
+      DOCKER_INFLUXDB_INIT_PASSWORD: 1q2w3e4r5t6y
+      DOCKER_INFLUXDB_INIT_ORG: org1
+      DOCKER_INFLUXDB_INIT_BUCKET: bucket1
+      DOCKER_INFLUXDB_INIT_RETENTION: 30d
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: MpCpEGm1092T3PrbaUFGIRtadf1ggNMQx-IX55f_hLIYFG6E9JF9M3NdbnMlkpkT080YRkHgBoyWtIPAj_MJrQ==
     restart: always
 
 volumes:
