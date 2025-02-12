@@ -1,0 +1,35 @@
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg17
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: db
+    ports:
+      - "5432:5432"
+    volumes:
+      - timescaledb_data:/var/lib/postgresql/data
+    restart: always
+
+  python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "$PWD:/app"
+    depends_on:
+      - timescaledb
+    # Dejar corriendo el contenedor
+    command: tail -f /dev/null
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - timescaledb
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin
+
+volumes:
+  timescaledb_data:
