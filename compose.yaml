@@ -31,5 +31,18 @@ services:
     environment:
       GF_SECURITY_ADMIN_PASSWORD: admin
 
+  influxdb:
+    image: influxdb:2.7
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+    environment:
+      INFLUXDB_DB: db
+      INFLUXDB_USER: user
+      INFLUXDB_USER_PASSWORD: password
+    restart: always
+
 volumes:
   timescaledb_data:
+  influxdb_data:
