@@ -7,7 +7,7 @@ conn = psycopg2.connect(CONNECTION)
 conn.autocommit = True
 cursor = conn.cursor()
 
-# Agrupar los datos de los sensores por ubicación y tipo, en intervalos de 5 minutos
+# Crear vista materializada (continuous aggregate) para promedios de CPU cada 5 minutos
 query = """
         CREATE MATERIALIZED VIEW cpu_5_minutes
         WITH (timescaledb.continuous) AS
