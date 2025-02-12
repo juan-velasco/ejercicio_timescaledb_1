@@ -6,7 +6,7 @@ CONNECTION = "postgres://user:password@timescaledb:5432/db"
 conn = psycopg2.connect(CONNECTION)
 cursor = conn.cursor()
 
-# Agrupar los datos de los sensores por ubicación y tipo, en intervalos de 5 minutos
+# Ahora podemos hacer consultas a la vista materializada
 query = """
            SELECT five_min, avg FROM cpu_5_minutes
            WHERE location = %s AND type = %s
